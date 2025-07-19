@@ -1,19 +1,74 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ theme, setWeatherData }) => {
+  const [query, setQuery] = useState("");
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    if (!query) return;
+    try {
+      const response = await fetch(
+        `http://localhost:5000/weather?city=${query}`
+      );
+      const data = await response.json();
+
+      if (response.ok && data.current && data.forecast) {
+        setWeatherData(data);
+      } else {
+        alert(data.error || "City not found!");
+      }
+    } catch (error) {
+      alert("Failed to fetch weather data.");
+    }
+    setQuery("");
+  };
+
+  useEffect(() => {
+    const fetchDefaultCity = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/weather?city=Delhi`
+        );
+        const data = await response.json();
+
+        if (response.ok && data.current && data.forecast) {
+          setWeatherData(data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch default city weather:", error);
+      }
+    };
+    fetchDefaultCity();
+  }, [setWeatherData]);
+
   return (
-    <div className="flex justify-center items-center mt-2">
-      <div className="flex w-full max-w-2xl bg-white rounded-xl shadow-md overflow-hidden">
-        <input
-          type="text"
-          placeholder="Search for a city..."
-          className="flex-grow px-4 py-3 text-gray-800 focus:outline-none"
-        />
-        <button className="bg-blue-500 text-white px-6 py-3 hover:bg-blue-600 transition-all">
-          Search
-        </button>
+    <form onSubmit={handleSearch}>
+      <div className="flex justify-center items-center mt-2">
+        <div
+          className={`flex w-full max-w-2xl rounded-xl shadow-md overflow-hidden ${
+            theme === "day"
+              ? "bg-white/50 text-gray-800"
+              : "bg-white/30 text-white"
+          }`}
+        >
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search for a city..."
+            className={`flex-grow px-4 py-3 bg-transparent focus:outline-none ${
+              theme === "day" ? "placeholder-gray-600" : "placeholder-white/60"
+            }`}
+          />
+          <button
+            type="submit"
+            className="text-white px-6 py-3 hover:bg-blue-500 transition-all"
+          >
+            🔍
+          </button>
+        </div>
       </div>
-    </div>
+    </form>
   );
 };
 

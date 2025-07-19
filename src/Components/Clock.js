@@ -8,7 +8,7 @@ const Clock = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const timeString = now.toLocaleTimeString("en-GB"); // 24hr format like 22:20:14
+  const timeString = now.toLocaleTimeString("en-GB");
   const dateString = now.toLocaleDateString("en-GB", {
     day: "2-digit",
     month: "long",
@@ -16,9 +16,9 @@ const Clock = () => {
   });
 
   return (
-    <div className="bg-white/20 backdrop-blur-md shadow-md rounded-2xl p-6 flex flex-col items-center justify-center h-full border border-white/30">
+    <div className="bg-white/50 shadow-md rounded-2xl p-6 flex flex-col items-center justify-center h-full border border-white/30">
       <p className="text-5xl font-mono text-black">{timeString}</p>
-      <p className="text-lg text-gray-700 mt-2">{dateString}</p>
+      <p className="text-lg text-gray-900 mt-2">{dateString}</p>
     </div>
   );
 };

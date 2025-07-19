@@ -1,12 +1,29 @@
 import React from "react";
 
-const WeatherDetails = () => {
-  // Dummy data
+const WeatherDetails = ({ weatherData }) => {
+  if (!weatherData) return null;
+  const current = weatherData;
   const weatherInfo = [
-    { label: "Humidity", value: "72%", icon: "💧" },
-    { label: "Wind Speed", value: "15 km/h", icon: "🌬️" },
-    { label: "Pressure", value: "1015 hPa", icon: "📈" },
-    { label: "Visibility", value: "8 km", icon: "👁️" },
+    {
+      label: "Humidity",
+      value: `${current.main.humidity}%`,
+      icon: "💧",
+    },
+    {
+      label: "Wind Speed",
+      value: `${current.wind.speed} km/h`,
+      icon: "🌬️",
+    },
+    {
+      label: "Pressure",
+      value: `${current.main.pressure} hPa`,
+      icon: "📈",
+    },
+    {
+      label: "Visibility",
+      value: `${current.visibility / 1000} km`,
+      icon: "👀",
+    },
   ];
 
   return (
@@ -14,7 +31,7 @@ const WeatherDetails = () => {
       {weatherInfo.map((item, index) => (
         <div
           key={index}
-          className="bg-white/20 backdrop-blur-md shadow-md rounded-2xl p-3 text-center space-y-2 border border-white/30"
+          className="bg-white/50 shadow-md rounded-2xl p-3 text-center space-y-2 border border-white/30"
         >
           <div className="text-2xl">{item.icon}</div>
           <div className="text-black font-semibold">{item.label}</div>
