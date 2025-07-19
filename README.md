@@ -5,7 +5,7 @@ A modern, responsive weather dashboard that displays real-time weather condition
 ### 🔗 Live Demo
 🌐 [Weather Dashboard](https://weather--dashboard.vercel.app/)
 
----
+
 
 ## 📦 Tech Stack
 
@@ -14,7 +14,6 @@ A modern, responsive weather dashboard that displays real-time weather condition
   🌐 [Backend Deployed on Render](https://weather-backend-kyxe.onrender.com)
 - **Data Source**: OpenWeatherMap API
 
----
 
 ## ⚙️ Features
 
@@ -25,4 +24,4 @@ A modern, responsive weather dashboard that displays real-time weather condition
 - ⏰ Live clock component
 - 🔮 Glassmorphism UI
 
----
+
