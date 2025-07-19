@@ -9,8 +9,10 @@ import Tip from "./Components/Tip";
 import Forecast from "./Components/Forecast";
 import Loading from "./Components/Loading";
 import Toggle from "./Components/Toggle";
+import WeatherLoader from "./Components/WeatherLoader";
 
 function App() {
+  const [loadingComplete, setLoadingComplete] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [theme, setTheme] = useState("day");
@@ -35,9 +37,13 @@ function App() {
 
   if (loading) return <Loading />;
 
+  if (!loadingComplete) {
+    return <WeatherLoader onFinish={() => setLoadingComplete(true)} />;
+  }
+
   return (
     <div
-      className={`relative min-h-screen w-full flex flex-col items-center ${backgroundClass} bg-[length:200%_200%] animate-gradient-x p-6 ${textClass}`}
+      className={`relative min-h-screen h-auto w-full flex flex-col items-center ${backgroundClass} bg-[length:200%_200%] animate-gradient-x p-6 ${textClass}`}
     >
       <div className="w-full flex flex-col-reverse sm:flex-row justify-between items-start sm:items-center mb-4 gap-3">
         <div className="w-full sm:w-auto flex-1">
