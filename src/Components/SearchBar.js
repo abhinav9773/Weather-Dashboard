@@ -8,7 +8,7 @@ const SearchBar = ({ theme, setWeatherData }) => {
     if (!query) return;
     try {
       const response = await fetch(
-        `http://localhost:5000/weather?city=${query}`
+        `https://weather-backend-kyxe.onrender.com/weather?city=${query}`
       );
       const data = await response.json();
 
@@ -27,7 +27,7 @@ const SearchBar = ({ theme, setWeatherData }) => {
     const fetchDefaultCity = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/weather?city=Delhi`
+          `https://weather-backend-kyxe.onrender.com/weather?city=Delhi`
         );
         const data = await response.json();
 
