@@ -1,31 +1,27 @@
 # 🌦️ Weather Dashboard
 
-A beautiful, responsive weather dashboard built with **React** and **Express.js**, featuring:
+A modern, responsive weather dashboard that displays real-time weather conditions, 5-day forecasts, and helpful tips — built with React and styled using Tailwind CSS with a glassmorphism aesthetic.
 
-- Current weather info
-- 5-day forecast
-- Smart tips based on weather
-- Real-time clock
-- Day/Night theme toggle
-- Glassmorphism UI design
+### 🔗 Live Demo
+🌐 [Weather Dashboard](https://weather--dashboard.vercel.app/)
 
-🔗 [Live Demo](https://weather--dashboard.vercel.app/)  
-📦 Backend runs on: `http://localhost:5000`
 
-## ⚙️ Tech Stack
+
+## 📦 Tech Stack
 
 - **Frontend**: React, Tailwind CSS
-- **Backend**: Express.js, Node.js
-- **API**: OpenWeatherMap
-- **Deployment**: Vercel (Frontend), Localhost (Backend)
+- **Backend API**: Node.js + Express  
+  🌐 [Backend Deployed on Render](https://weather-backend-kyxe.onrender.com)
+- **Data Source**: OpenWeatherMap API
 
-## 🚀 Features
 
-✅ Search weather by city  
-✅ View current weather, forecast, and tips  
-✅ Animated background gradient  
-✅ Glassmorphism card layout  
-✅ Light/Dark theme toggle  
-✅ Responsive on all screen sizes  
+## ⚙️ Features
+
+- 🌍 Search weather by city
+- 📅 5-day forecast display
+- 🧠 Weather-based daily tips
+- 🌓 Dark/Light mode toggle
+- ⏰ Live clock component
+- 🔮 Glassmorphism UI
 
 
