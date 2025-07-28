@@ -8,7 +8,7 @@ const SearchBar = ({ theme, setWeatherData }) => {
     if (!query) return;
     try {
       const response = await fetch(
-        `https://weather-backend-kyxe.onrender.com/weather?city=${query}`
+        `https://weather-backend-sage.vercel.app/weather?city=${query}`
       );
       const data = await response.json();
 
@@ -27,7 +27,7 @@ const SearchBar = ({ theme, setWeatherData }) => {
     const fetchDefaultCity = async () => {
       try {
         const response = await fetch(
-          `https://weather-backend-kyxe.onrender.com/weather?city=Delhi`
+          `https://weather-backend-sage.vercel.app/weather?city=Delhi`
         );
         const data = await response.json();
 
